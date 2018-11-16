@@ -4,7 +4,8 @@ module.exports = app => {
 	app.get(
 		'/auth/google',
 		passport.authenticate('google', {
-			scope: ['profile', 'email']
+			scope: ['profile', 'email'],
+			prompt: 'select_account'
 		})
 	);
 
@@ -17,7 +18,8 @@ module.exports = app => {
 	);
 
 	app.get('/api/logout', (req, res) => {
-		req.logout();
+		//=> Session { passport: { user: 'cookiesession key '} };
+		req.logout(); //=> Session { passport: { } }; #(OR) req.session = null; //=> Session is null.
 		res.redirect('/');
 	});
 

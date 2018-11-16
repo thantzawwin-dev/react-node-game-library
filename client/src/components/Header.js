@@ -8,14 +8,14 @@ class Header extends Component {
 			case null:
 				return;
 			case false:
-				return (
-					<li>
+				return [
+					<li key="0">
 						<a href="/auth/google">Login With Google</a>
 					</li>
-				);
+				];
 			default:
 				return [
-					<li key="1">
+					<li key="0">
 						<a href="/api/logout">Logout</a>{' '}
 					</li>
 				];
